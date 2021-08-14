@@ -1,0 +1,48 @@
+public class Mahasiswa {
+    String nama;
+    String NIM;
+    String alamat;
+    String jenisKelamin;
+    String prodi;
+    int nilaiAkhir;
+    final int KKM = 80;
+    static int totalMahasiswa;
+
+    Mahasiswa(String nama, String NIM, String alamat, String jenisKelamin, String prodi, int nilaiAkhir){
+        this.nama = nama;
+        this.NIM = NIM;
+        this.alamat = alamat;
+        this.jenisKelamin = jenisKelamin;
+        this.prodi = prodi;
+        this.nilaiAkhir = nilaiAkhir;
+        totalMahasiswa++;
+    }
+
+    public static String jumlahMahasiswa(){
+        return "Jumlah mahasiswa adalah : " + totalMahasiswa;
+    }
+
+    public void show(){
+        if(nilaiAkhir>=KKM){
+            System.out.println("Nama : " + this.nama+"\n" + "NIM : " + this.NIM+"\n" + "Alamat : " + this.alamat+"\n" +
+                    "Jenis Kelamin : " + this.jenisKelamin+"\n" + "Prodi : " + this.prodi+"\n" + "Nilai Akhir : " + this.nilaiAkhir+"\n" +  "Keterangan : " + "Lulus" + "\n============================");
+        }else{
+            System.out.println("Nama : " + this.nama+"\n" + "NIM : " + this.NIM+"\n" + "Alamat : " + this.alamat+"\n" +
+                    "Jenis Kelamin : " + this.jenisKelamin+"\n" + "Prodi : " + this.prodi+"\n" +
+                    "Nilai Akhir : " + this.nilaiAkhir+"\n" +  "Keterangan : " + "Remedial" + "\n============================");
+        }
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Mahasiswa mahasiswa1 = new Mahasiswa("Agil","124613","Makassar","Laki-Laki","Teknik Indormatika",100);
+        Mahasiswa mahasiswa2 = new Mahasiswa("Aliyah","4532434","Mamuju","Perempuan","Pendidikan Dokter",88);
+        Mahasiswa mahasiswa3 = new Mahasiswa("Gilang","424551","Samarinda","Laki-Laki","Psikologi",70);
+        mahasiswa1.show();
+        mahasiswa2.show();
+        mahasiswa3.show();
+        System.out.println(Mahasiswa.jumlahMahasiswa());
+    }
+
+}
